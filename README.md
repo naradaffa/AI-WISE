@@ -2,7 +2,7 @@
 
 Proyek ini adalah sistem pemantauan pergerakan (motion tracking) dan deteksi jatuh (fall detection) real-time berbasis ESP32 dan sensor IMU MPU9250. Perangkat dirancang untuk dipasang secara vertikal pada sabuk pengguna. Data sensor dikirimkan secara real-time ke Web Dashboard (HTML, CSS, JS) menggunakan protokol Server-Sent Events (SSE) melalui jaringan WiFi.
 
-🚀 Panduan Memulai & Konfigurasi WiFi
+## 🚀 Panduan Memulai & Konfigurasi WiFi
 Sebelum mengunggah kode ke ESP32, sesuaikan kredensial jaringan WiFi yang akan digunakan agar perangkat dapat terhubung.
 1. Buka folder ESP32 lalu ke aiwise.ino di Arduino IDE.
 2. Cari baris berikut di bagian atas kode:
@@ -12,7 +12,7 @@ Sebelum mengunggah kode ke ESP32, sesuaikan kredensial jaringan WiFi yang akan d
 4. Pastikan laptop/smartphone yang digunakan untuk membuka Web Dashboard berada dalam satu jaringan WiFi yang sama dengan Perangkat ESP32.
 5. Setelah di-upload, buka Serial Monitor (Baudrate: 115200) untuk melihat IP Address yang didapatkan oleh ESP32 (contoh: 192.168.1.5). Masukkan IP tersebut ke browser Anda untuk membuka dashboard.
 
-📚 Library Arduino yang Dibutuhkan
+## 📚 Library Arduino yang Dibutuhkan
 Pastikan library berikut sudah terinstal di Arduino IDE Anda:
 1. Wire.h (Bawaan)
 2. MPU9250_asukiaaa
@@ -20,7 +20,7 @@ Pastikan library berikut sudah terinstal di Arduino IDE Anda:
 4. ESPAsyncWebServer
 5. ArduinoJson
 
-🚨 Prosedur Kalibrasi & Arti Indikator LED
+## 🚨 Prosedur Kalibrasi & Arti Indikator LED
 Untuk mendapatkan akurasi sensor yang maksimal, perangkat menerapkan sistem kalibrasi hulu (hardware mapping). SOP penyalaan alat wajib mengikuti panduan ini karena posisi sensor dipasang vertikal (Sumbu Y fisik menghadap ke atas):
 | Tahapan Kalibrasi | Status LED | Instruksi Tindakan Pengguna | Tujuan Sistem |
 | :--- | :--- | :--- | :--- |
@@ -29,7 +29,7 @@ Untuk mendapatkan akurasi sensor yang maksimal, perangkat menerapkan sistem kali
 | Tahap 3 (2 Detik) | LED Merah & Hijau NYALA BERSAMAAN | Berhenti memutar, hadapkan alat lurus ke DEPAN, dan tahan diam. | Proses Auto-Zeroing untuk mengunci arah depan tersebut sebagai sudut Yaw = 0.0. |
 | Tahap Berjalan | LED Merah MATI, LED Hijau NYALA | Alat siap digunakan di sabuk untuk aktivitas/pengujian. | Sistem beroperasi normal dan mulai mengirimkan data JSON ke web. |
 
-📊 Standar Satuan dan Konvensi Sudut (Standar Internasional)
+## 📊 Standar Satuan dan Konvensi Sudut (Standar Internasional)
 Sistem koordinat 3D pada alat ini telah disesuaikan agar patuh pada regulasi matematika spasial Right-Hand Rule (Z-Up) untuk mempermudah integrasi dengan platform navigasi atau robotika.
 1. Standar Rotasi / Sudut (Euler Angles)
    Nilai sudut awal saat alat selesai dikalibrasi menghadap ke depan adalah (0, 0, 0).
@@ -49,13 +49,13 @@ Sistem koordinat 3D pada alat ini telah disesuaikan agar patuh pada regulasi mat
 3. Kecepatan Sudut (Giroskop)
    Menggunakan satuan derajat per detik (deg/s). Membaca seberapa cepat sentakan atau laju rotasi yang sedang terjadi pada sumbu X, Y, dan Z secara real-time sebelum distabilkan menjadi sudut Euler.
 
-🛠️ Fitur Tombol Reset Posisi (Hold 5 Detik)
+## 🛠️ Fitur Tombol Reset Posisi (Hold 5 Detik)
 Perangkat dilengkapi dengan tombol kalibrasi dinamis (hardware button) yang terhubung pada pin BUTTON_PIN (D3).
 - Cara Penggunaan: Jika posisi sudut di dashboard bergeser akibat drift sensor, tekan dan tahan tombol selama 2 detik.
 - Indikator: LED Hijau akan mati sementara dan LED Merah akan berkedip cepat selama 300 milidetik sebagai tanda kalibrasi sukses.
 - Hasil: Posisi orientasi tubuh Anda saat tombol ditekan tersebut akan dipaksa kembali menjadi titik awal Roll: 0.0, Pitch: 0.0, Yaw: 0.0 tanpa perlu me-reboot ulang ESP32.
 - Catatan: Jika tombol ditekan kurang dari 2 detik, sistem tidak akan melakukan reset (anti-bocor/anti-peleset).
 
-📂 Struktur Repositori
+## 📂 Struktur Repositori
 - ESP32 : Berisi kode program utama Arduino (.ino) untuk ESP32.
 - Web Dashboard : Berisi file front-end (index.html, style.css, script.js) untuk menampilkan visualisasi data grafis dan status jatuh pengguna.
