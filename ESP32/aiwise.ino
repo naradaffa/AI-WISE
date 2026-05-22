@@ -1,4 +1,4 @@
-#include <Wire.h>
+5#include <Wire.h>
 #include <MPU9250_asukiaaa.h>
 #include <WiFi.h>
 //#include <SPI.h>  
@@ -199,11 +199,11 @@ void loop() {
         resetTriggered = false;
       }
       
-      if (!resetTriggered && (millis() - buttonPressStartTime >= 2000)) {
+      if (!resetTriggered && (millis() - buttonPressStartTime >= 5000)) {
         pitch_bias = raw_pitch;
         roll_bias  = raw_roll;
         yaw_bias   = raw_yaw;
-        Serial.println(">>> POSISI DIRESET KE 0.0 (DITAHAN 2 DETIK) <<<");
+        Serial.println(">>> POSISI DIRESET KE 0.0 (DITAHAN 5 DETIK) <<<");
         
         digitalWrite(LED_GREEN, LOW);
         digitalWrite(LED_RED, HIGH);
