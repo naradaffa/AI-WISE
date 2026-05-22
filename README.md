@@ -17,7 +17,7 @@ Agar dashboard dapat menerima aliran data secara real-time dari ESP32, Anda haru
 1. Buka folder Web Dashboard lalu edit file script.js
 2. Cari baris kode EventSource, lalu ganti IP default-nya dengan IP Address ESP32 yang baru saja Anda dapatkan dari Serial Monitor.
    ```js
-   const gateway = "IP ESP32/events";
+   const gateway = "IP_ESP32/events";
 4. Simpan perubahan pada script.js.
 5. Klik kanan file index.html lalu pilih Open with Live Server, halaman akan otomatis terbuka di browser Anda, dan grafik dashboard akan langsung menampilkan pergerakan sensor!
 
