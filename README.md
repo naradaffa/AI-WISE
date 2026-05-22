@@ -22,6 +22,7 @@ Pastikan library berikut sudah terinstal di Arduino IDE Anda:
 🚨 Prosedur Kalibrasi & Arti Indikator LED
 Untuk mendapatkan akurasi sensor yang maksimal, perangkat menerapkan sistem kalibrasi hulu (hardware mapping). SOP penyalaan alat wajib mengikuti panduan ini karena posisi sensor dipasang vertikal (Sumbu Y fisik menghadap ke atas):
 
+
 📊 Standar Satuan dan Konvensi Sudut (Standar Internasional)
 Sistem koordinat 3D pada alat ini telah disesuaikan agar patuh pada regulasi matematika spasial Right-Hand Rule (Z-Up) untuk mempermudah integrasi dengan platform navigasi atau robotika.
 1. Standar Rotasi / Sudut (Euler Angles)
