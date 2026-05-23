@@ -226,7 +226,6 @@ void loop() {
       lastSseSend = nowMillis; 
       
       float totalAcc = sqrt(aX * aX + aY * aY + aZ * aZ);
-      String status = (totalAcc > 20.0) ? "JATUH!" : "AMAN";
 
       StaticJsonDocument<512> doc;
       doc["time"] = nowMillis;
@@ -239,8 +238,7 @@ void loop() {
       doc["total"] = round(totalAcc * 100) / 100.0;
       doc["roll"] = round(roll * 10) / 10.0;
       doc["pitch"] = round(pitch * 10) / 10.0;
-      doc["yaw"] = round(yaw * 10) / 10.0; 
-      doc["status"] = status;
+      doc["yaw"] = round(yaw * 10) / 10.0;
 
       String payload;
       serializeJson(doc, payload);
