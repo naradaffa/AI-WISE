@@ -60,10 +60,10 @@ Sistem koordinat 3D pada alat ini telah disesuaikan agar patuh pada regulasi mat
 
 ## 🛠️ Fitur Tombol Reset Posisi (Hold 5 Detik)
 Perangkat dilengkapi dengan tombol kalibrasi dinamis (hardware button) yang terhubung pada pin BUTTON_PIN (D3).
-- Cara Penggunaan: Jika posisi sudut di dashboard bergeser akibat drift sensor, tekan dan tahan tombol selama 2 detik.
+- Cara Penggunaan: Jika ingin merubah referensi titik 0, tekan dan tahan tombol selama 5 detik.
 - Indikator: LED Hijau akan mati sementara dan LED Merah akan berkedip cepat selama 300 milidetik sebagai tanda kalibrasi sukses.
 - Hasil: Posisi orientasi tubuh Anda saat tombol ditekan tersebut akan dipaksa kembali menjadi titik awal Roll: 0.0, Pitch: 0.0, Yaw: 0.0 tanpa perlu me-reboot ulang ESP32.
-- Catatan: Jika tombol ditekan kurang dari 2 detik, sistem tidak akan melakukan reset (anti-bocor/anti-peleset).
+- Catatan: Jika tombol ditekan kurang dari 5 detik, sistem tidak akan melakukan reset.
 
 ## 📂 Struktur Repositori
 - ESP32 : Berisi kode program utama Arduino (.ino) untuk ESP32.
